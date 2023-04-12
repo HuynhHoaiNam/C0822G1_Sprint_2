@@ -1,0 +1,273 @@
+<!--Container danh sách-->
+<div class="container">
+
+  <!--  <div class="container" style="margin-top: 75px">-->
+  <!--    <div class="row" >-->
+  <!--      <div class="col-lg-1"></div>-->
+  <!--      <div class="col-lg-9">-->
+
+  <!--        <div class="row clearfix">-->
+  <!--          <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let watch of watchList; index as i">-->
+  <!--            <div class="card product_item">-->
+  <!--              <div class="body" (click)="addCartInList(watch.id)" style="border: 2px solid #b6effb; border-radius: 5px">-->
+  <!--                <div class="cp_img">-->
+  <!--                  &lt;!&ndash;              <img src="../../../../assets/image/watch-ban.jpg" alt="Product" class="img-fluid"/>&ndash;&gt;-->
+  <!--                  <img [src]="watch.url" alt="Product" style="height: 185px" class="img-fluid"/>-->
+  <!--                  <div class="hover" style="margin-top: 25px">-->
+  <!--                    <button class="btn btn-primary btn-sm">Thêm vào giỏ</button>-->
+  <!--                    &lt;!&ndash;                <a class="btn btn-warning btn-sm waves-effect" style="margin-left: 10px">Giỏ hàng</a>&ndash;&gt;-->
+  <!--                  </div>-->
+  <!--                </div>-->
+  <!--                <div class="product_details">-->
+  <!--                  <h5 [routerLink]='["/detail",watch.id]'><a style="font-size: 20px">{{watch.name}}</a></h5>-->
+  <!--                  <ul class="product_price list-unstyled">-->
+  <!--                    <li class="new_price">{{watch.price|number}} ₫</li>-->
+  <!--                  </ul>-->
+  <!--                </div>-->
+  <!--              </div>-->
+  <!--            </div>-->
+  <!--          </div>-->
+
+  <!--        </div>-->
+
+  <!--      </div>-->
+  <!--      <div class="col-lg-1"></div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+
+  <!--  <div class="product">-->
+  <!--    <div class="container">-->
+  <!--      <div class="row">-->
+  <!--        <div class="container mt-5 mb-5">-->
+  <!--          <div class="gallary-header text-center">-->
+  <!--            <h1 style="width: 100%;background-color: darkslategrey;height: 20px;"><p class="cmtt"-->
+  <!--                                                                                     style="background-color: white;width: 30%;line-height: 4px;padding: 5px 5px 13px 5px;margin: auto">-->
+  <!--              SẢN PHẨM HOT-->
+  <!--            </p></h1>-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--      </div>-->
+  <!--      <div class="wrapper">-->
+  <!--        <ul class="products">-->
+  <!--          <div class="previous">-->
+  <!--            <a class="previous" (click)="searchPerfume(nameSearch,number - 1)" *ngIf="!firstPage">-->
+  <!--              <span class="carousel-control-prev-icon" aria-hidden="true"></span>-->
+  <!--            </a>-->
+  <!--          </div>-->
+  <!--          <li *ngFor="let perfume of perfumes">-->
+  <!--            <div class="product-item">-->
+  <!--              <div class="product-top">-->
+  <!--                <a href="" class="product-thumb">-->
+  <!--                  <img src="">-->
+  <!--                </a>-->
+  <!--                <a class="buy-now" data-toggle="modal" data-target="#detail">Mua-->
+  <!--                  ngay</a>-->
+  <!--              </div>-->
+  <!--            </div>-->
+  <!--            <div class="product-info">-->
+  <!--              <a href="" class="product-cat"></a>-->
+  <!--              <a href="" class="product-name">sfsdfs<span-->
+  <!--                style="background-color: lightgray;color: #007bff;font-weight: 600">...</span></a>-->
+  <!--              <div class="product-price">Giá: đ</div>-->
+  <!--            </div>-->
+  <!--          </li>-->
+  <!--          <div class="next">-->
+  <!--            <a class="next">-->
+  <!--              <span class="carousel-control-next-icon" aria-hidden="true"></span>-->
+  <!--            </a>-->
+  <!--          </div>-->
+  <!--        </ul>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--  -->
+
+  <!--Sản nổi bật-->
+  <div class="container mt-5 mb-5 col-sm-12">
+    <div class="text-center">
+      <h1 style="width: 100%;background: #4169E1; border-radius: 15px 15px 15px 15px"><p
+        style="background-color: #ffffff;width: 30%;line-height: 5px;padding: 15px 5px 13px 5px;margin: auto;color: black; font-size: 25px">
+        SẢN PHẨM MỚI NHẤT
+      </p></h1>
+    </div>
+  </div>
+
+  <!--Các ưu đãi free ship-->
+  <div class="row" style="margin: 0 0 0 50px;">
+    <div class="container">
+      <div class="row benefit_row">
+        <div class="col-lg-3 benefit_col lazy">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon"><img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEp0lEQVR4nO1aTagcRRDuEPWiHhSNHkQ86E0v6ik8M92DT9R3UeKKl3gw8LZqQ1DwJBFjFPVFxZPgxVxzEE+Jh4CefBE8JKIgRDBhq+YlT2M0MaiIGt9KzfZMdmens7O7PbuzZj7ow/RPVfU31TVdPa1UjRo1atSoUeOqRaPx7XUGeL9BXjfInSoWDXTGIK+Ird4JMMgrs55gYSKQ3vJOgO6y2zFIW1VFEbR4IfEE78IN0jkRLkpURRECPxS/JKCfvAvXwO/M2rULF+D93gkI9nausUGwU/GyIraqsmCsIlUxTM0uUxPAtQeYeglwHQNUxeCKTRr4CwO0WrqiWcNll3d7TU0A9zEau1j+huSoqz0va3PIOVq0vehGSSOfNcgfh7vofi8eYNwZ2efDDOvN2q4kY9z2IeXvAKJnvBGgCvZ3ZW3jyBmlPdW9e+0ODfSe7f9nANG9w8Z4J8CnnKLtWWigD+IxQF82Gp3NlSHA5KzvUdrT52b7cQO0llkyfxjgDx9YPnbt1udO3GiAIhsXnp8qAWGStyOdc02wd32P0p4+ZyafGfuK9NFIS9YLfgua7bsmIsCMEZ018tuTEFnErt4+GqPAIG3I2t/WXLsnrgM6aF/GEW8E6ALRWQMdElecJgFdEvhA963zZ0p1Ni3CyS3JaZcB2jE2Aap4/2etsu97Dy6mRcAjO6Ob7V4gnXBikwb6WQgplYBGo7NZI3+XZXxaBMRtQDuSCQfLZ27p9qcjtu5gqQT0eQHyiQljyUC76zkLg/ypjUMH5FmCoAb63S7hJdc4lRNtV7MRua9/Tru4vtT1xQqg1SvGkmHtIxIQtKK7JRgaoH9kWUhdCPyC9cxIPpOFCKgKRvkMZoLxvwvINyXLUzZGtu39QoqqgqxdIbQfSzY6zskj/xgiQ6+cbbui+zTyX0JMsMwPDlVUFfi0S5I0S9BHpSryCZ92Pbx86k4rb71URT6Rtavv/GDkI7HOpu5Y2hiqqCrI+zrlfS3GlTd3BJQmz1ytBATz83PUY6ENmXMgOYtBfnf2Bs2maEnb05SxwjdEfCM5uzRy4cL3GpsXpPM2jm9q3q+noNW+3SC9oYG+kQwrLshfa+TXw52nbhs23nfdJPYMEoADqW1fXYjc0MAXnesJ+GLQoqdc433XTWrPSASYJj8tSURXMB0Kmm29+OIP10sJsW0M8uFuUKFLGmh72QT4sGeAAJ09jbX5fuxmwBdsv5eUAxp5j+1zXtwv77zAR50vewYIUG5BryVMu/r0CI2ZN8ivqpLgy5503tpelHTdE9TAx+P2ZltfNoKWNNJpOZyQ/DwVChTa9XdclQQf9iT/LzTS6TRHHlaC1tkbck9lgKKkPv4rM6VNjA97NNCb8WVpIeHyldn/PwHy5mXyjSKXrxOXk+iaOZZaE2VBK3o063IG+ZgqCVO3xwDvs0IOF+j7iXWtvWMrrJo9oXxCkM93XYf3uJXRy9a9fhn6F2YCzMQeDbRdNhUJ8+JasgalxG6WMI10KcDoiYmUVdUeHSvlX52BCfhC2Gw/6UVZVe1ZhJNb7EbkqzT5kKAEvG9h9/qtXpXNoT01atRQc4f/AO5CjYfaAGMqAAAAAElFTkSuQmCC">
+            </div>
+            <div class="benefit_content">
+              <h6>Miễn phí vận chuyển</h6>
+              <h5 style="font-weight: bold">Toàn quốc</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 benefit_col">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAESklEQVR4nO1ZTYgcVRBuUKM5JXrwoodAhNy8xIM/0X41UVnxJDgxKJqDMFM1uARPHoMEspucxJsEk6AiOQpe/LuYRFARPLiwEBO7qidqEslFFEkCbqj+me3s/PTrmfTOm57+oNmh9lW/qq/fq1evyvNq1KhRo0aNCM3myhZAOQokfwDJmkuPQf4dSJbVRq8sAMnytB3NJYJ4qTQCTMzyGhA/6TkGvyN70pVQRM9Q6APxeSD+y5C8MnIwJCx7jqKofUC8CCQ3eisI+arVBOD4k+e4fyC4D5BPJqv5/+zWrjwBjXb4ECB/n4z9D5Bfz/pmRYDnKPLsM21+ClD+jIOlCJDsttUdOsigfAck51yQjXLCUNhJ97sh/ur5N8MHbHVHDnJdtrB4/l4gOZ7ZIh/4h9buzo4ZptsHlxyzliGfTr76vz6G+/u9mpQA5LOG+IwTsoFblP+JCEA5UNS3SgRBg/xpugIAg1eL6PZhFo/BQTFgd+une4b5VjkCUgBJy5Bcj7cDf/scXnhwLrbAsDwAkEO/JY/NFQEDM0GSN+aKgIF3gbjGMT8EDLsNGpLLnksENJsrWwzJMUN8TR9A/kyrUYbkCiC/p19yUvvieoCs6jv9Dr/sFAGQU4EyKO9vqn0wMNGILiU2x9M5C53bLzfIYeRoh/dCS3aaNr+mf/e2gifiJcvXpk4AIJ+1ISCbtg7T2ZjaGhRWud8JF/xO+Ai0ZR/gb7ugEz6T7NkrUyegTBjkQyOJRTmaHV96VRk2PQiu3WVIDgNyNzIwCoJavORLauzGa23pVWWo2DFYuKoMFSbASh/mnQCTNEZ0uXiOoYHydLKHL5VHAPHSnQg0ZT4G+UhpBDSj1JSX1ltk7jz65dX5SZqjpW9xqHgMyUVNAFVgBfgY7tdsTFvKepW8UxP4i92HAeVnzfZSmSF+Mcn6hqTC3G1g8EIRG8a1r4fY+Z4RN7So4E04Qew8/5r8/+veeORubgBEDm3nH9e+25CZfDlpLWtZ6dTG4oTtBFnnDfEP/sFg+6jxee/bNAI8/d2WfeudF/5RnSk6gUFe6elnnJ8JAhQN6j5qSC7GX1Aua0bmFSGA+Ezy9S9sJHAmCFBoq9kgf5nsyZuG5B3PUvfZ1sVtaZlaCyB+O9gxanze+6ZCQObufiyNC4bkQ21LeTZB8GCwXbdAEk9+mYkg6I04JqNGZGzcaVtdJQFQvgGSz1OZHnEjSdDuTidcGMvbMXyzHqSt6GTc35VLhKDQCpCPC08wRUwcAyBqMaW5gRy3iQGPvx1u1ccF2dgE7CG5H4i/SILfdUAhW109/jStdkE2FgGgdXqS1SQoXW1QALa6syDrQ3ZQox28pIGul8aOkQm6LuvD+hEk7/bOfOQT494FgOQTQ/KRI7J8Aox2ZjO3wUab38pzvNAEU4SVfQ2SZkLCqvboikxQ9apyLqpeVc5F1avKNWrUqFHDqxhuAehL8D5ERUnxAAAAAElFTkSuQmCC">
+            </div>
+            <div class="benefit_content">
+              <h6>Thanh toán</h6>
+              <h5 style="font-weight: bold">Linh hoạt</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 benefit_col">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon">
+              <img
+                src="data:image/png;base64,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">
+            </div>
+            <div class="benefit_content">
+              <h6>Đổi trả trong 45 ngày</h6>
+              <h5 style="font-weight: bold">Dễ dàng</h5>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-lg-3 benefit_col">
+          <div class="benefit_item d-flex flex-row align-items-center">
+            <div class="benefit_icon">
+              <img
+                src="data:image/png;base64,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">
+            </div>
+            <div class="benefit_content">
+              <h6>Mở cửa hàng tuần</h6>
+              <h5 style="font-weight: bold">24/7</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--Danh sách-->
+  <div class="container" style="margin-top: 75px">
+    <div class="row">
+      <div class="col-lg-2">
+        <div><h5 style="font-family: 'Lobster'; font-size: 20px">Tìm Kiếm Nhiều:</h5></div>
+        <div class="row"
+             style=" overflow: auto; height: 350px; background: #f3f3f3; border-radius: 8px;box-shadow: 0 0 10px 0 #3590de">
+          <div class="col-lg-12" (click)="getList(size,-1,-1,-1,'')" style="text-align: center;margin-top: 20px">
+            <button class="btn btn-outline-primary" style="color: black; border-radius: 20px">Tất cả</button>
+          </div>
+          <div class="col-lg-6" *ngFor="let trademarkT of trademarkTList "
+               style="margin-top: 15px; text-align: center"
+               (click)="getList(size,trademarkT.id,priceFirst,priceSecond,'')">
+            <button class="btn btn-outline-primary" style="border-radius: 20px;width: 90px ">
+              <img style="height: 16px; width: 100%" src="{{trademarkT.logo}}"/>
+            </button>
+          </div>
+        </div>
+        <div class="row"
+             style=" overflow: auto; height: 350px;margin-top: 50px; background: #f3f3f3; border-radius: 8px;box-shadow: 0 0 10px 0 #3590de">
+          <div class="col-lg-12" style="margin-top: 20px; text-align: center;"
+               *ngFor="let priceS of priceSearchList"
+               (click)="getList(size,trademarkId,priceS.priceFirst,priceS.priceSecond,'')">
+            <button class="btn btn-outline-primary"
+                    style="border-radius: 20px;font-size: 20px"> {{priceS.namePrice}}</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-1"></div>
+      <div class="col-lg-9">
+        <div><p></p></div>
+        <div class="row clearfix">
+
+          <div class="col-lg-3 col-md-4 col-sm-12" *ngFor="let watch of watchList; index as i">
+            <div class="card product_item">
+              <div class="body" (click)="addCartInList(watch.id)"
+                   style="border: 2px solid #b6effb; border-radius: 5px">
+                <div class="cp_img">
+                  <!--              <img src="../../../../assets/image/watch-ban.jpg" alt="Product" class="img-fluid"/>-->
+                  <img [src]="watch.url" alt="Product" style="height: 185px" class="img-fluid"/>
+                  <div class="hover" style="margin-top: 20px">
+                    <button class="btn btn-primary btn-sm" *ngIf="role!='ROLE_ADMIN'">Thêm vào giỏ</button>
+                    <!--                <a class="btn btn-warning btn-sm waves-effect" style="margin-left: 10px">Giỏ hàng</a>-->
+                  </div>
+                </div>
+                <div class="product_details">
+                  <h5 [routerLink]='["/detail",watch.id]'><a style="font-size: 20px">{{watch.name}}</a></h5>
+                  <ul class="product_price list-unstyled">
+                    <li class="new_price">{{watch.price|number}} ₫</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center" style="margin-top: 50px">
+            <a (click)="getList(size+4,trademarkId,priceFirst,priceSecond,'')" *ngIf="!lastT" class="seeMore">
+              <p style="font-size: 18px; margin: 0 0 -3px -20px;color: #4169E1"><span>Xem thêm</span></p>
+              <img style="width: 60%"
+                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEjElEQVR4nO1ZS4gcVRStiaio+I+IggsRY/BDJFkoQ2bqvuqMBIwr6aAoKhnsurfbIQZdiq3uREUUdaUuxJ249YMo/lAXWQpCYNL39vRMQiBm4Q+TaMnrrpqUbU91varXNdVSB4Zh3tT71H3n3HffKcepUKFChQ0AvvgK5cXdJFc6U4K7D3UvchurW60MBiTLiiRQyCeAeLHdDrY4JQeQfATIv7qNzvbcg7mNznYg+bwfhMHP916LdzolhiJ5I9y0j60N6mL3ASDu6YGB+CwQv1UGWdTrwXkK+RXly/6oTdNfkfys17qnJddbm2z2wE+XAspLiuR0WWQx1+DrFPHfiuSPuSf4xqgdqOsCcstxghnrk3o+3wooX2yWLOaod0P8byB5L1zH+06RcEfIYk9j+fKJztmUxwYvy09HbZrmQHJcB8LqZKohNyk8eouZLORtq4sYXlOzOx/K75e4vpNkWGv1ts37KzebT4Z9jZ9VyG+OS3gDWfC7ni8LxhMlrcGX/TrAuxqHz4/aAOXDfhCaciipr3uwcwWgvB6y86RxPgDkv9Z1jnxCYedA2oS3d+nIhQrlA72Aexa7VzkZoZC/1PN7KE9Gbd7i8rVA/Kz+PbpXMAMoj2pZxPJUYJysIQpAuAiThNc/ipB/Nz0tdi+tXaMrufU1EN8bSuuUltvYeZudOxXJt9F6Afmr6D0yB6DdDraoZvdBQF6NEl5qWcSKKE3dpOdrrd7VQPybQv5Bn+9Re59JJMeT5ovTPZxvzSV+uM+GsC1XAJww4SmSl03rAH1aKOQVRfJZ0nP1+o8XKJLOQN/8ePx/G88xRHfkM0D86t6lI5etv4etAERQTbnNRh2gTxkgeUdn6ajNI6lHY2ah+3yre8fwc9YDEGFYFqblsUKhQV/5Lp6hdQXn+h3IQvdRz08sAHlkEeu7Fu7e/eOeT0P3wgOQtzzu5weS0+MCkJbumxaAf5XHhrJIGn8U3cHnh0yKmkIDoLHw1LFLFMlzQPJnGIiTQHLQbJxgRpE8Eqe7Inkty10jcwDUOV2PPfOtyiIH3UexJ2KjcSmskJ+JJzddCme5X6eVhQ26b5gskdtOFtRavW2A/GlsFw9Dc+Uu03GSZWGP7so/ukMhf5OXPf9BllI4rSyG6e5i93bTce2xZ+LJbQCP5D4gkXO3TTmmWZCF7qPYM642KIUlNqsLIZTngeSFLAvu0z3GHn1rzcKezIjvoj4ytSVl7YPEGLrrXQ53Owd7SiaL0tFdpfAEi3KKh2sDE7oX4gludOZnPS1sZHerniAYUHuSpXA6ug/13QxP0GYpbEL3iXmCXo6Mn7Zvnuye1NfabXAhB7X3NVYvNi2FM9F9RBldKk/QG1MK56V7oZ6gZ0kWNuk+fZ4gmpTCJfYEa5auzWnrfiD+upSeoGf5fmCj7q88Qao8waDyBLHyBPNBVZ6gU3mCESpPMETlCTr/c0/QBLoUVsSfFFYK2/riYxtlLIULx8Kme4IlQS2jLKaG7mlRhCdYeuybmCc4ZfAseoJTDc/a5/EpxmzOz+MVKlSo4FjAP/prz+jdQjV/AAAAAElFTkSuQmCC">
+            </a>
+            <a class="seeMore" (click)="getList(size=8,trademarkId,priceFirst,priceSecond,'')"
+               *ngIf="lastT && watchList.length>8">
+              <p style="font-size: 18px; margin: 0 0 -3px 0;color: #4169E1"><span>Ẩn bớt</span></p>
+              <img style="width: 85%"
+                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEb0lEQVR4nO1aTYgURxSuVSGCaAwqaESEoIZgBJODgqzbVT0u7CUXcTHxEHEPO/V6GMTknKx4ySEREfSWeEi8iXuSgCcj/oLehYVs12vXVTcughhF3dhS/bPpnR2mq7ure37sDxp2mn5dr16979Wrr5eQEiVKlGgD9ozcW0kBT8hL/k3eJ5iAXzEuHAboBtc0A/yWELeP9DKYhdsZ4JXIxG8FV/j7inyG9BoGv3+4ggEep4Cv5EQpiFkKeHRszF0iV12uPgV87AWBizcM8PRQfWIV6bV0p1z8RwF/N0YfrG18zjhqr5YTpyDmeoIWldrUNsrF5Uh636XW/d1xdoZl76Qcb4R2lIurAzVnB+mNdFdFl9LCVEx3VXQNLSop010VHUuLQS3p3qW0MDWne9fQgjU0MxTwplkTXxbdCssx5diFNVGDGtNdXytcCC3cPsbtQ5SLB8HE5xgXZ/sBP9KRPTpWUfoifQpp4fnK7UOZaVHRVN0VW+FHWVdR625BQfzIAF8HTs0wbo+kStHG7AE80yx7vFUEPJN9Fb0xRzyf/UC8Zlz8kCYAc8HktaX7ALe/iLOTz+ikRRj4pPYkdKDNrXBmWqSdB0lj2ImtcCEBYHzy04XFUtwxq84uogmyuDHA62mKW64BGKpPrGJcnAyLpb8fO0dUVih5IyRp4RyZ3/P94nYyjha5BcDMkO5ZGqGktNAeAIM7n6ep7ro1wWa7hfRNdR7xzsJCwyzVPT9NMH630BIAU1O656UJtrLNHADGxV860l311JjllLeIFhHfVewXIOKAxnRXhUZapA0A5eJJq949z1OjjlPewrOF+Cfx4IblbJGnwSJFkjxoIecg50LywGCpCYpSE6SlJuiWmqAqSk0QSk1wrtQEY1Bqgt2rCbrKEniIuPOBDqm8kAAYKUQSwxIHpKxFAQ/qEj+yzqNQTZCBvT+weaR+yusYTdBNnO4m2IxWsfp/cOQ7xDXf3rFU/UpKi47RBBkXt+XzBne+Du8NVO9vZRx/rQB+ktS/wjXBoYTp3ljgvO91fkV3huoTH7QaW35joCCmmOV8k5UWGgLgeuke6GxK6R4IGTOM44VoQPzP4eLfSm1qTauxKceLSc7+jbTwfA1o0RZNcI/30UPMShspiob3jcP28v769Lr40Ret7EsVuxw1QWyZ7oZlr5efoKNOMhD1oEhdJSkhV5aCOEUBx+No0yJ4+WuCzMJjQaDGw3vGmLuMcvzZBBxOPHirsbgwKRfnktEiB01wLFLk9o6KDQzwWbClGSRHUMDf5gse4C9x3xVz0QQZ4HlZaMyqszHi2Hd+yuNhkiP2jf794aI+IHa30AzG8Y9gFc5H7++FqU1F+aDr1KgEWdAMC/vnf1uTmxkXLxiIt/tq+DFpG5r0AQq0SASz6mz0txR8Gq3ysrjJwYaH3aWkzWjaHuukBeN4KdhXz5IORjNaDID9WeYXV/z/F3xOAf8kHY8GWnCc1PLa/vr0OtnJkS5B0ET9lOSkWaJECfLe4R18I4cPxUbNCAAAAABJRU5ErkJggg==">
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<!--Ảnh quảng cáo dưới-->
+<div class="row" style="margin: 100px 0 0 0">
+  <div class="col-lg-6 col-sm-6 col-md-12">
+    <img src="../../../../assets/image/02b46ce7-a468-441e-8707-f8c9c1a56969.__CR0,0,1464,600_PT0_SX1464_V1___.jpg"
+         style="width: 100%;height:250px ; border-radius: 30px;box-shadow: 0 0 10px 0 #253365"
+    /></div>
+  <div class="col-lg-6 col-sm-6 col-md-12">
+    <img src="../../../../assets/image/dcb35632-a0f7-48b8-b29e-179d2bf3a124.__CR0,0,1464,600_PT0_SX1464_V1___.jpg"
+         style="width: 100%;height:250px ; border-radius: 30px;box-shadow: 0 0 5px 0 #253365"/></div>
+</div>
+
+
+<!-- Best Sellers -->
+<div class="best_sellers">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <div class="section_title new_arrivals_title">
+          <h2 style="font-family: 'Lobster'">Các thương hiệu nổi tiếng</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row"
+         style="margin-top:70px;border: 2px solid #3590de; border-radius: 20px;box-shadow: 0 0 10px 0 #3590de">
+      <div class="container">
+        <div class="row benefit_row">
+          <div class="col-lg-2 col-sm-4 col-md-6 col-12 benefit_col">
+            <img src="../../../../assets/image/rolex-main-removebg-preview.png" width="100%" height="110px"/></div>
+          <div class="col-lg-2 col-sm-4 col-md-6 col-12 benefit_col">
+            <img src="../../../../assets/image/IWC_logo-removebg-preview.png" width="100%" height="110px"/></div>
+          <div class="col-lg-2  col-sm-4 col-md-6 col-12 benefit_col">
+            <img src="../../../../assets/image/patek-lai-logo.png" width="100%" height="110px"/></div>
+          <div class="col-lg-2 col-sm-4 col-md-6 col-12 benefit_col">
+            <img src="../../../../assets/image/login-main-logo-removebg-preview.png" width="100%" height="110px"/></div>
+          <div class="col-lg-2 col-sm-4 col-md-6 col-12 benefit_col">
+            <img src="../../../../assets/image/breguet-logo-removebg-preview.png" width="100%" height="110px"/></div>
+          <div class="col-lg-2 col-sm-4 col-md-6 col-12 benefit_col">
+            <img src="../../../../assets/image/chronoswiss-logo-removebg-preview.png" width="100%" height="110px"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

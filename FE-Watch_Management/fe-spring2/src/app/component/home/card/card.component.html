@@ -1,0 +1,209 @@
+<div style="margin-top: 81px">
+  <section class="h-100 h-custom" style="background: #bbbbbb">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 mt-7 mb-5">
+          <div class="card card-registration card-registration-2">
+            <div class="card-body p-0">
+              <div class="row g-0" *ngIf="iOderDetailList.length!=0; else cartIsEmpty"
+                   style="background: #f3f3f3;border-radius: 16px;box-shadow: 0 0 20px 0 #3590de">
+                <div class="col-lg-8 col-md-12 col-sm-12 col-12">
+                  <!--                     style="overflow: auto; height: 350px">-->
+                  <div class="p-5" style="overflow: auto; height: 650px; ">
+                    <h5 style="margin: 0"><a routerLink="" class="text-body"><i
+                      class="fas fa-long-arrow-alt-left me-2"></i>Tiếp tục mua sắm</a></h5>
+                    <div class=" align-items-center">
+                      <h3 class="fw-bold mb-0 " style="text-align: center">Giỏ hàng của bạn</h3>
+                    </div>
+                    <hr class="my-4">
+                    <div class="row mb-4 d-flex justify-content-between align-items-center"
+                         *ngFor="let oderDetail of iOderDetailList">
+                      <div class="col-md-2 col-lg-2 col-xl-2">
+                        <img
+                          src="{{oderDetail.url}}" style="width: 100%"
+                          class="img-fluid rounded-3" alt="Smart Watch">
+                      </div>
+                      <div class="col-md-3 col-lg-3 col-xl-3">
+                        <h6 class="text-black">{{oderDetail.watchName}}</h6>
+                      </div>
+                      <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                        <button class="btn btn-link px-2" (click)="changeQuantity(0,oderDetail.idWatch)">
+                          <i class="fas fa-minus"></i>
+                        </button>
+                        <input id="form1" min="1" value="{{oderDetail.quantity}}" type="number" readonly
+                               class="form-control form-control-sm" style="width: 50px"/>
+                        <button class="btn btn-link" (click)="changeQuantity(1,oderDetail.idWatch)"
+                                [disabled]="oderDetail.errorMessage!=null">
+                          <i class="fas fa-plus"></i>
+                        </button>
+                      </div>
+                      <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                        <h6 class="mb-0" style="color: red">{{oderDetail.price|number}}₫</h6>
+                      </div>
+                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                        <a (click)="deleteInCart(oderDetail.idOrder)" class="text-muted"><i
+                          class="fas fa-times"></i></a>
+                      </div>
+                      <span style="color: red; margin-top: 10px; height: 23px">{{oderDetail.errorMessage}}</span>
+                      <hr class="my-4">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-12">
+                  <div class="p-5" style="background: #b6d4fe; border-radius:15px; height: 650px">
+                    <h4 class="fw-bold mb-5 mt-2 pt-1 text-uppercase">Tổng tiền tạm tính</h4>
+                    <hr class="my-4">
+                    <div class="d-flex justify-content-between mb-4">
+                      <h5>Số mặt hàng: <span style="margin-left: 10px">{{watchCount}}</span></h5>
+                    </div>
+                    <h5>Vận chuyển: </h5>
+                    <div class="mb-4 pb-2">
+                      <input type="text" placeholder="Nhập địa chỉ" class="form-control">
+                    </div>
+                    <h5>Mã giảm giá:</h5>
+                    <div class="mb-5">
+                      <div class="form-outline">
+                        <input type="text" id="form3Examplea2" placeholder="Nhập mã giản giá"
+                               class="form-control form-control-lg"/>
+                      </div>
+                    </div>
+                    <hr class="my-4">
+                    <div class="d-flex justify-content-between mb-5">
+                      <p style="font-size: 19px; color: #2b2b34">Tổng tiền: </p>
+                      <h4 style="color: red">{{totalMoney|number}}₫</h4>
+                    </div>
+                    <button *ngIf="enter == false" [disabled]="disablePayment==true" type="button" (click)="enterInfo()"
+                            style="margin-left: 40px"
+                            class="btn btn-danger btn-block btn-lg"
+                            data-mdb-ripple-color="primary">Tiến hành đặt hàng
+                    </button>
+                    <!--                    <div id="payments"></div>-->
+                  </div>
+                </div>
+              </div>
+              <ng-template #cartIsEmpty>
+                <div class="row g-0">
+                  <img style="display: flex; margin: 0 auto;width: 55%"
+                       src="../../../../assets/image/empty_cart-removebg-preview.png"/>
+                </div>
+                <div class="row g-0" style="height: 50px; margin-bottom: 30px">
+                  <div class="d-flex"><h5
+                    style="margin-left: 480px; font-size: 20px; font-family: 'Paypal', sans-serif">Giỏ hàng trống tiếp
+                    tục mua sắm:<a class="ahi" routerLink="" style="margin-left: 5px">tại đây</a></h5>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<!--Form nhập thông tin nhận hàng-->
+<div class="container" *ngIf="enter==true">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-xl-9">
+      <div class="card mt-5" style="border-radius: 15px;box-shadow: 0 0 20px 0 #3590de">
+        <div class="card-body " style="box-shadow: 0 0 20px 0 #253365;border-radius: 15px">
+          <h5 style="margin: 0" (click)="backCart()"><a class="text-body"><i
+            class="fas fa-long-arrow-alt-left me-2"></i>Huỷ thanh toán</a></h5>
+          <form [formGroup]="userForm" (ngSubmit)="show()">
+            <h3 style="text-align: center; margin-top: 30px; margin-bottom: 50px; font-size: 28px; font-weight: bold">
+              Xác nhận thông tin thanh toán</h3>
+            <div class="row">
+              <input type="hidden" formControlName="id">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="name">Tên người nhận <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <input class="form-control" type="text" id="name" formControlName="name">
+                </div>
+                <div class="row">
+                  <div class="row" style="height: 30px">
+                    <p style="color: red"
+                       *ngIf="userForm.controls.name.hasError('required') && userForm.controls.name.touched">
+                      * Không được để trống</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 30px">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="phoneNumber">Số điện thoại <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <input class="form-control" type="text" id="phoneNumber" formControlName="phoneNumber">
+                </div>
+                <div class="row" style="height: 30px">
+                  <p style="color: red"
+                     *ngIf="userForm.controls.phoneNumber.hasError('required') && userForm.controls.phoneNumber.touched">
+                    * Không được để trống</p>
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 30px">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="email">Email <span style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <input class="form-control" type="text" id="email" formControlName="email">
+                </div>
+                <div class="row" style="height: 30px">
+                  <p style="color: red"
+                     *ngIf="userForm.controls.email.hasError('required') && userForm.controls.email.touched">*
+                    Không được để trống</p>
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 30px">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="address">Địa chỉ <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <input class="form-control" type="text" id="address" formControlName="address">
+                </div>
+                <div class="row" style="height: 30px">
+                  <p style="color: red"
+                     *ngIf="userForm.controls.address.hasError('required') && userForm.controls.address.touched">*
+                    Không được để trống</p>
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 30px">
+              <div class="col-lg-4"></div>
+              <div class="col-lg-6">
+                <button *ngIf="isShow == false" type="submit"
+                        class="btn btn-danger btn-block btn-lg"
+                        data-mdb-ripple-color="primary">Thanh toán
+                </button>
+                <div id="payments"></div>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

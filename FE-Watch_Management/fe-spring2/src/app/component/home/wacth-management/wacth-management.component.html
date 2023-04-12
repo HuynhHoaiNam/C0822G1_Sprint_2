@@ -1,0 +1,190 @@
+<div class="row" style="width: 1520px">
+  <table class="table table-bordered table-hover" style="background-color: white; margin-top: 80px;
+              box-shadow: 0 0 20px 0 #3590de">
+    <thead class="table-primary align-middle" style="text-align: center">
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Tên sản phẩm</th>
+      <th scope="col">Mặt kính</th>
+      <th scope="col">Giá</th>
+      <th scope="col">Xuất xứ</th>
+      <th scope="col">Loại đồng hồ</th>
+      <th scope="col">Chức năng</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let watch of watchList; index as i" style="text-align: center" class="align-middle">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{watch.name}}</td>
+      <td>{{watch.face}}</td>
+      <td>{{watch.price|number}}đ</td>
+      <td>{{watch.origin}}</td>
+      <td>{{watch.trademarkT?.name}}</td>
+      <td>
+        <button class="btn btn-outline-warning" style="margin-right: 5px" [routerLink]="['/update',watch.id]">
+          <img style="width: 30px; height: 20px"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADEElEQVR4nO3VyU8TcRjG8ZfFRPQEJyHBkxfjzcTEu/F/UDFET9BO2qHtAAf+B/eDEKOoaFC2qlgXYrkYQQJY6L4MBTrdZqZtJLIe+pgBSRpELUrLjOk3ee+f55dMhqhUKe21OkbXNyYpjFE6TFrEY5YAJ2FjmiKaGpGLh5sAD2H9i0ZG7IbPeglZH2F9VuUj1sbp1q/w2QAhGyR8m6BPGKVK0tLLZ3/gV6YIKTsh9YH6VDViT3i7ykb8Fd6ukhH/hLfnjJikQ9rE2w9oxL7i7VsXt5aN4TlVaRM/WI7Ig0rEnlYI0Zd0RJN4obsS0YcViPeWCyjEiGLgY48qEH9cjkRf2f6OWBv78x923/A95Ugq11e2oL2X79nCi0/KIA3R7RIeWn35Fcfp15rFf5W/XN1wVP8Wv1wY/I1/xstLSyfTmcxqKp3BivustvBKqUzmloKXU2lIcgrrrmrt4JVS6bR/Gy9KMjKhDu3gRVGszcUnRAlidFzdH2xuUjrdkIuPJyXEEiKWp6vU/fLbSbLctRMfjSchxBKIRHgIoX4kJ87vB/4mFSJRkoO74qNxLEZjWBCimI8IiM60qw8vSVJdPvjwooC5hQgS4+fUg1dKJKTL+eL5+UXMe3rVg1eKJaV7+eJD4QWEeHfeeHmI7lChez8y8jlffHBuHn4+jLj16J9ffpCuFRzf0dFR39bWlrW9eZc33heagzfIw++yY+5jG2L9NQeDV+I4rrG1tRXKDdtseeM9AR5ufwguXxBObwCC7Uwu/joVK47j7nMcB4vFArPZjJfDw3vGz3r8mHH7kBioQcx26j0VM4vFElbwJpMJLS0tm2d98WrPeIfLuzw7+bahqPj29vbjuXiWZWE0GjdvYMiaJ97rdji916ZcrhNU7Mxm85WdeIPBAIZhNq9vYPBnvDfIO72BTofH3+h0BuvpIDOZTN274fV6PXQ6HZqamrL9Q9Yxd4DvdPlDFz0eTy2pKZZl+V3wPp1Od7e5ufmCXq8/RmqOZdlnRqPRbzAYuhiGucQwTN1Bm0qVKvWf9h2q7FYY+Mr0QgAAAABJRU5ErkJggg==">
+        </button>
+        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                (click)="detailWatch(watch.id)" style="margin-right: 5px">
+          <img style="width: 30px; height: 20px"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADRUlEQVR4nO2ZXUhTYRjHd2NBXmRBOY0uAi/Cry7SCAoKvFDaaEcMIaKuIshItCD0bGhJo/xgOT9Qd/yEIggio8tIUgTvDMq1mZrbzEmeTbfO5uZZ2z/OlmAqbMcdz9HYA384sJvf77zP877nZTJZohKVqP+/ihegIOz4QdiBeJPfPTsquoDKjjkh4Llkaj6LL0EIBM8lS/0lItFjGduzAqJLEAIKZKsnxJcgBBTIISfElyDWAajmQzhQZUBSRWvUJFdTWwqILkEIKJBLGsWXIARsoVOkUXwJQkCB09qpqBJn+q2ju1agcIwRX4IQcAb4RJYQ2IEWknwFiIQAoLIFoJz2QGFehsLowKUJOvysnPGGf9vxFUiuomIa4k0p12NfWQNydS9wc/gT6ucd6PKxMKwG0cywIBcY3Jh2QmFaCovsnED1NgTu6nBM0wnNpAUDIaA/GEnfb6CXSwDoCQAUC2idfpSY6N0zA5dnfbg+5UB3IBgV3rAKdPoBvTeIlhWck1yAa4VSM80LvsMPtPuANi/cbT5kSCqgNC+jye3nD78CtHiBZg9GpBvicj0O3WvDyceDyKh7jRMPX+F4zUuka57jKDmAw1W9OPiAQvL9TuyvbEcKSf0Dr/cAz5hwLkozxHeakNPwJmaBpIrWTfA6Bmh0gxJUINZwe/v5jg+8VqBlA3zTL6DRBbM0AkYHqECIV8/rN8K7gacuuCUT6GJDccHXu4AnS2CkGeLbDaiz/owXHlonvko2xNk8hjiFpLaCR50DXYIK8DnECoZneO1CjZvhUUsLvI3yPcgu9I7EJHCQpLaC/xgXfLwC3CpcMdHhbxsePQ8OXm1n2YL31luSCqx9zF0109B5gjHDk/YAzr41I29omc0cXKyVVCAsYfGjxOxAzaI/KnzlnB+FY3PIG1pi84fdyHpHB9MMVpWkAmvtxJ3O1745UWFjULvIQusM4hEdhHqBRdl3BqUmJxSTrvCNjXvzHHx6tw1yg2011WBRSiqwXoS7PipiuFLKKVuR3GDzpVERiW2thNACsUb2t+KWEPIvJh6xrmeIS6LYjiLCDpuY8Kp5FG7k4GYgDB+RGJftxUqNSIwf6ZuVS82SqETJdkH9AdnZeR4MKdrlAAAAAElFTkSuQmCC">
+        </button>
+        <button class="btn btn-outline-danger">
+          <img style="width: 30px; height: 20px"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADPklEQVR4nO2Za2/SUBjH+Q6Gbq8McxoU2Si0MO73S7nDdui29DPuxZyJJmoyMH4Rx61QoJT4pm3ymEPkjbqtLe0Qwz/pW/r7lXOenuepzbbLLrv8//lRv2wsapddqXrRlSpsw6r7jKlEg/fGuzwZ6w7dUXPuI9U4tKhdKovqBSwq5yCVWFVkWM5mcngygXgyrozIOPDHMRi6I+rQHeZMhV+UWSwAc6aligzirILnj6LAuyMwcAXVoSvImQovFVsgMQjE/Kkq5pucVfDDtyEYvglC/3VA7Tn9nJE1fy/8vHAG8/wpiLmmImYbrFH4kS/FPgQ/eH0CA2cA+i9ppXdI1TX/MN6wj8HPc00Qsw2YZeqKmKqyVsEPXvmxAPRfeL9r/nGpen6nBV7M1EFM12CaquqS0A1/6IOeg9QhUGEbUplVtMDPUlWYJaswjVeUSbzEWgHfdZBKz0FqX0JLCaaF5sWWogV+lqjANF6GSbSoTsMMZ3TDDv4Gf0Cqveceg5WIaSGxcKZogZ/GSjCNFEEI5dVpMM9tHH6VWa6JflWbR+En4QJMQnkYn2TVsT/DbRx+lVm6hpbVRgO8EMyBEMjCmE4vJTYOvwquMrjaaIEX/BksACNvUjGyYbsOj+F3y4OZJcpomqjIWuDHviSMvAnY+JP/PUK0jCaxkryV8KsIIQYJ4YK8lfCrCKEcGgdz8lbCryIE0mjsz8hbCb8KT6XRyJuUtxIex0idvzsg1Rvi6OvVs00/fYPw74jjb1d2D1zbPerNpiTWhyfhvd0LHwmv+onwcVsK74MvBAXtPUptEzrbxn8HnobO8noCCevgaesljJ4qtcPTKwnlds9v7mFunSPxlf0IXds9sjZ42vx/wozz/I2dRB8Ir6wNnjZPwsxm5LOdQrd7tKwNnl5fwopOqrNPofZTSIzxlNiiTgpvULxRdUoobULHZA6PuK1sAw1JEJT2wRZPxu6s7mF1SxA6BPDHhaE7oljdgN9qltC5hHB4VwgNXEHF6vN8Z59CD0usUYn6rgDqOwOK1c1I514JE94FfWcA4fm81Z1U5w8JE9/G+OMCns/jEbfuKbGOtAmqjjcrvnSv+V122cW2lfkJLsRzLEFk6YUAAAAASUVORK5CYII=">
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+
+  <!-- Modal -->
+  <div class="modal fade modal-dialog-scrollable modal-xl" id="exampleModal" tabindex="-1"
+       aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-size: 20px">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel" style="font-weight: bold">Chi tiết sản phẩm</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-lg-4" style="background: #ffffff; border-radius: 20px 0 0 20px">
+              <div class="row">
+                <div id="carouselExampleDark" class="carousel carousel-dark slide"
+                     data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active" data-bs-interval="3000"
+                         *ngFor="let im of watchT.images.slice(0,1)">
+                      <img src="{{im.url}}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item" data-bs-interval="3000" *ngFor="let im of watchT.images.slice(1)">
+                      <img src="{{im.url}}" class="d-block w-100" alt="...">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                          data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                          data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-7" style="background: #ffffff; border-radius: 0 20px 20px 0">
+              <div class="product_details">
+                <div class="product_details_title" style="font-family: 'Lobster'">
+                  <h2 style="margin-top: 20px; font-size: 30px; font-weight: bold">{{watchT.name}}</h2>
+                  <p>{{watchT.note}}</p>
+                </div>
+                <div class="product_price" style="font-size: 22px; font-weight: bold">{{watchT.price|number}}₫</div>
+                <ul class="star_rating">
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                  <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                </ul>
+                <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center row">
+                  <div class="col-lg-6"><span style="font-weight: bold; margin-right: 10px">Loại đồng hồ: </span>
+                    <span>{{watchT.watchType?.name}}</span></div>
+                  <div class="col-lg-6"><span
+                    style="font-weight: bold; margin-right: 10px">Màu sắc: </span>
+                    <span>{{watchT.color}}</span></div>
+                </div>
+                <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center row">
+                  <div class="col-lg-6"><span style="font-weight: bold; margin-right: 10px">Số lượng: </span>
+                    <span>{{watchT.quantity}}</span></div>
+                  <div class="col-lg-6"><span style="font-weight: bold; margin-right: 10px">Mặt kính: </span>
+                    <span>{{watchT.face}}</span></div>
+                </div>
+                <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center row">
+                  <div class="col-lg-6"><span style="font-weight: bold; margin-right: 10px">Nguồn gốc: </span>
+                    <span>{{watchT.origin}}</span></div>
+                  <div class="col-lg-6"><span style="font-weight: bold; margin-right: 10px">Loại dây: </span>
+                    <span>{{watchT.strapType}}</span></div>
+                </div>
+                <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center row">
+                  <div>
+                    <span style="font-weight: bold; margin-right: 10px">Thương hiệu:</span>
+                    <span>{{watchT.trademarkT?.name}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Huỷ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <div *ngIf="watchPage" class="d-flex justify-content-center" id="last-row">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item" [ngClass]="watchPage.first ? 'disabled': ''">
+              <a role="button" class="page-link" (click)="changePage(0)">Trang đầu</a>
+            </li>
+            <li class="page-item" [ngClass]="watchPage.first ? 'disabled': ''">
+              <a role="button" class="page-link" (click)="changePage(watchPage.number - 1)"><</a>
+            </li>
+            <li class="page-item" *ngIf="watchPage.number - 3 > 0">
+              <a role="button" class="page-link"
+                 (click)="changePage(watchPage.number - 4)">{{watchPage.number - 3}}</a>
+            </li>
+            <li class="page-item" *ngIf="watchPage.number - 2 > 0">
+              <a role="button" class="page-link"
+                 (click)="changePage(watchPage.number - 3)">{{watchPage.number - 2}}</a>
+            </li>
+            <li class="page-item" *ngIf="watchPage.number - 1 > 0">
+              <a role="button" class="page-link"
+                 (click)="changePage(watchPage.number - 2)">{{watchPage.number - 1}}</a>
+            </li>
+            <li class="page-item" *ngIf="watchPage.number > 0">
+              <a role="button" class="page-link"
+                 (click)="changePage(watchPage.number - 1)">{{watchPage.number}}</a>
+            </li>
+            <li class="page-item active"><a class="page-link">{{watchPage.number + 1}}</a></li>
+            <li class="page-item" *ngIf="watchPage.number + 2 <= watchPage.totalPages">
+              <a role="button" class="page-link"
+                 (click)="changePage(watchPage.number + 1)">{{watchPage.number + 2}}</a>
+            </li>
+            <li class="page-item" *ngIf="watchPage.number + 3 <= watchPage.totalPages">
+              <a role="button" class="page-link"
+                 (click)="changePage(watchPage.number + 2)">{{watchPage.number + 3}}</a>
+            </li>
+            <li class="page-item" *ngIf="watchPage.number + 4 <= watchPage.totalPages">
+              <a role="button" class="page-link"
+                 (click)="changePage(watchPage.number + 3)">{{watchPage.number + 4}}</a>
+            </li>
+            <li class="page-item" *ngIf="watchPage.number + 5 <= watchPage.totalPages">
+              <a role="button" class="page-link"
+                 (click)="changePage(watchPage.number + 4)">{{watchPage.number + 5}}</a>
+            </li>
+            <li class="page-item" [ngClass]="watchPage.last ? 'disabled': ''">
+              <a role="button" class="page-link"
+                 (click)="changePage(watchPage.number + 1)">></a>
+            </li>
+            <li class="page-item" [ngClass]="watchPage.last ? 'disabled': ''">
+              <a role="button" class="page-link"
+                 (click)="changePage(watchPage.totalPages - 1)">
+                Trang cuối
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

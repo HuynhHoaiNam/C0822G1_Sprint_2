@@ -1,0 +1,98 @@
+<div class="super_container" style="background: #f4f5f6">
+  <div class="container single_product_container">
+    <div class="single_product_pics">
+      <div class="row" style="margin-top: -70px">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4" style="background: #ffffff; border-radius: 20px 0 0 20px">
+          <div class="row" style="height: 115px">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4"></div>
+          </div>
+          <div class="row" style="height: 400px">
+            <div id="carouselExampleDark" class="carousel carousel-dark slide"
+                 data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000" *ngFor="let im of watchT.images.slice(0,1)">
+                  <img src="{{im.url}}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000" *ngFor="let im of watchT.images.slice(1)">
+                  <img src="{{im.url}}" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+                      data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+                      data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-4" *ngFor="let im of watchT.images">
+              <img src="{{im.url}}" style="width: 100%; height:108px;border: 2px solid; border-radius: 10px"
+                   class="hoverDetail">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5" style="background: #ffffff; border-radius: 0 20px 20px 0; height: 700px">
+          <div class="product_details">
+            <div class="product_details_title" style="font-family: 'Lobster'">
+              <h2 style="margin-top: 20px; font-size: 30px; font-weight: bold">{{watchT.name}}</h2>
+              <p>Đồng hồ rolex được chế tác từ các nguyên liệu tốt nhất và lắp ráp tỉ mỉ đến từng chi tiết. Mỗi chi tiết
+                được thiết kế, phát triển, và sản xuất với tiêu chuẩn chính xác nhất.</p>
+            </div>
+            <div class="original_price" style="font-size: 20px">{{priceMain|number}}₫</div>
+            <div class="product_price" style="font-size: 22px; font-weight: bold">{{watchT.price|number}}₫</div>
+            <ul class="star_rating">
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star" aria-hidden="true"></i></li>
+              <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+            </ul>
+            <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+              <span style="font-weight: bold; margin-right: 10px">Loại đồng hồ: </span>
+              <span>{{watchT.watchType?.name}}</span>
+            </div>
+            <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+              <span style="font-weight: bold; margin-right: 10px">Loại dây:</span>
+              <span>{{watchT.strapType}}</span>
+            </div>
+            <div class="product_color">
+              <span style="font-weight: bold; margin-right: 10px">Loại mặt:</span>
+              <span>{{watchT.face}}</span>
+            </div>
+            <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+              <span style="font-weight: bold; margin-right: 10px">Thương hiệu:</span>
+              <span>{{watchT.trademarkT?.name}}</span>
+            </div>
+            <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center">
+              <span style="font-weight: bold; margin-right: 10px">Số lượng:</span>
+              <span><input type="number" value="1" class="form-control" #quantity></span>
+            </div>
+            <div style="margin-top: 40px; text-align: center">
+              <button (click)="addCart(watchT.id, +(quantity.value))" [disabled]="role=='ROLE_ADMIN'"
+                      style="display: inline-block; text-align: center ; width:370px; height: 50px;display: inline-block"
+                      class="btn btn-primary"><img style="height: 100%"
+                                                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACOElEQVR4nO2ZzUsVURiHXzMo3LnLLwSRUEIipI3aPnFtrgwhpAwSLFy06i9oIQQt3PqZJaKJO6MW7Vy1KXClRkXdNNr14RMHX3GIvPfO3PMxR3pgNnPnnfk9cN5z7swR+U/OAPqAHYqzC7wChoAqySPAe9IxlUsZYDsRcusfv1cB9cAw8F2vuy55A+hVmS3gaolrjYxhQ2IGOAN8UZl2iRlgRkVGJGaAmyoyJzEDtKnIp1zOXhmn7DaJGWBORW5JzAAjKjIrMQO0q8iHqPuEg9X+40npkyeE54UNkduhLYBNGyIXQlsAD2z1iVkUQ7EPtFQsojJPKwjSBXRXUL9uRUJF7mRNkbhHVgZtinQEEvkG1NgUMX3yOYDIpDWJRJDFACJdLkRGbT6Y0hPAOyd/i4CLZYj0pLjflRL3um9dQh98KvEeXzaJ+jT8BpqciGiYJU8ia84kNMyYJ5FrrkUueRApAGddi5g++ZrSxcxOPSmuf+RUIiGzjFs6fYnccyjxxouEinQ6FLnrU6Ra91Fs8xM4501EZVYcvDxNeJVQkXEN8FhiBrisIm8lZoDT+tJjqJeY4Wg9uSEnZP/kdeyfU2sTw+sh0GymZokRYAD4ZXEafhlSpt+iyA+gLpTItIYwi2SDHs+L7asAs0VqpvxbHIQ63HZoSJxr0nOFY2oKRWr2fGX/O9RhwzeWG4oMNc4BnmkAMzQa9VjVcwu2apwDnD/m64oZPq22asQH2qzzOmTMsVAqUJYawx87gABa/H+VegAAAABJRU5ErkJggg==">
+              </button>
+              <button routerLink=""
+                      style="text-align: center; width: 120px; height: 50px; margin-left: 10px"
+                      class="btn btn-danger">Quay lại
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+
+    </div>
+  </div>
+</div>

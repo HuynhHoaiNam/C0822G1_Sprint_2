@@ -1,0 +1,4 @@
+*:not(i) {
+  font-family: 'Lobster';
+  font-size: 20px;
+}

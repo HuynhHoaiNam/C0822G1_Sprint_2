@@ -1,0 +1,187 @@
+<!--Form nhập thông tin nhận hàng-->
+<div class="container">
+  <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="col-xl-9">
+      <div class="card mt-5" style="border-radius: 15px;box-shadow: 0 0 20px 0 #3590de">
+        <div class="card-body " style="box-shadow: 0 0 20px 0 #253365;border-radius: 15px">
+          <h5 style="margin: 0" routerLink="/watchManagement"><a class="text-body"><i
+            class="fas fa-long-arrow-alt-left me-2"></i>Quay lại</a></h5>
+          <form [formGroup]="watchForm" (ngSubmit)="updateWatch()">
+            <h3 style="text-align: center; margin-top: 30px; margin-bottom: 50px; font-size: 28px; font-weight: bold">
+              Chỉnh sửa sản phẩm</h3>
+            <div class="row">
+              <input type="hidden" formControlName="id">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="name">Tên người nhận <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <input class="form-control" type="text" id="name" formControlName="name">
+                </div>
+                <div class="row">
+                  <div class="row" style="height: 15px">
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="price">Giá <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <input class="form-control" type="text" id="price" formControlName="price">
+                </div>
+                <div class="row" style="height: 15px">
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 15px">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="origin">Nguồn gốc <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <input class="form-control" type="text" id="origin" formControlName="origin">
+                </div>
+                <div class="row" style="height: 15px">
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 15px">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="face">Loại mặt <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <input class="form-control" type="text" id="face" formControlName="face">
+                </div>
+                <div class="row" style="height: 15px">
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 15px">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="strapType">Loại dây <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <input class="form-control" type="text" id="strapType" formControlName="strapType">
+                </div>
+                <div class="row" style="height: 15px">
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 15px">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="note">Note <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <textarea class="form-control" type="text" id="note" formControlName="note"></textarea>
+                </div>
+                <div class="row" style="height: 15px">
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 15px">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="color">Màu sắc <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <input class="form-control" type="text" id="color" formControlName="color">
+                </div>
+                <div class="row" style="height: 15px">
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 15px">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="quantity">Số lượng <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <input class="form-control" type="text" id="quantity" formControlName="quantity">
+                </div>
+                <div class="row" style="height: 15px">
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 15px">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="trademarkT">Hãng <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <select style="color: #dc3545" id="trademarkT" formControlName="trademarkT" class="form-select" [compareWith]="compareFun">
+                    <option *ngFor="let trademark of trademarkTList" [ngValue]="trademark">{{trademark.name}}</option>
+                  </select>
+                </div>
+                <div class="row" style="height: 15px">
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+            <div class="row" style="margin-top: 15px">
+              <div class="col-4">
+                <label style="font-weight: bold;margin-left: 60px" for="watchType">Loại đồng hồ <span
+                  style="color: red">*</span>:</label>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <select style="color: #dc3545" id="watchType" formControlName="watchType" class="form-select"
+                          [compareWith]="compareFunWatchType">
+                    <option *ngFor="let watchType of watchTypeList" [ngValue]="watchType">{{watchType.name}}</option>
+                  </select>
+                </div>
+                <div class="row" style="height: 15px">
+                </div>
+              </div>
+              <div class="col-2">
+              </div>
+            </div>
+
+
+            <div class="row" style="margin-top: 15px">
+              <div class="col-lg-4"></div>
+              <div class="col-lg-6">
+                <button type="submit"
+                        class="btn btn-outline-secondary btn-block btn-lg"
+                        data-mdb-ripple-color="primary">Chỉnh Sửa
+                </button>
+              </div>
+              <div class="col-lg-2"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

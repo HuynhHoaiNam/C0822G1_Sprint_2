@@ -1,0 +1,53 @@
+/*@media (min-width: 1025px) {*/
+/*  .h-custom {*/
+/*    height: 100vh;*/
+/*  }*/
+/*}*/
+
+/*.card-registration .select-input.form-control[readonly]:not([disabled]) {*/
+/*  font-size: 1rem;*/
+/*  line-height: 2.15;*/
+/*  padding-left: .75em;*/
+/*  padding-right: .75em;*/
+/*}*/
+
+/*.card-registration .select-arrow {*/
+/*  top: 13px;*/
+/*}*/
+
+/*.bg-grey {*/
+/*  background: radial-gradient(lightskyblue, cornflowerblue);*/
+/*}*/
+
+/*@media (min-width: 992px) {*/
+/*  .card-registration-2 .bg-grey {*/
+/*    border-top-right-radius: 16px;*/
+/*    border-bottom-right-radius: 16px;*/
+/*  }*/
+/*}*/
+
+/*@media (max-width: 991px) {*/
+/*  .card-registration-2 .bg-grey {*/
+/*    border-bottom-left-radius: 16px;*/
+/*    border-bottom-right-radius: 16px;*/
+/*  }*/
+/*}*/
+
+*:not(i) {
+  font-family: 'Lobster';
+  font-size: 20px;
+}
+
+@media (min-width: 1025px) {
+  .h-custom {
+    height: 100vh !important;
+  }
+}
+
+.ahi:hover {
+  cursor: pointer;
+}
+
+.ahi {
+  border-bottom: 2px solid #0d6efd;
+}

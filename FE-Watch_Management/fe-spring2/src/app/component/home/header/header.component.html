@@ -1,0 +1,102 @@
+<!-- Header -->
+<header class="row header trans_300">
+  <div class="main_nav_container" style="background: #3590de">
+    <div class="row" style="padding: 0; margin: 0">
+      <div class="col-lg-12 text-right">
+        <div class="logo_container">
+          <a (click)="home()" class="hover"><img
+            src="../../../../assets/image/Picsart_23-04-05_22-49-02-620-removebg-preview.png"
+            style="width: 175px;margin-top: -14px; height: 160px"/></a>
+        </div>
+        <nav class="navbar">
+          <ul class="navbar_menu">
+            <li><a routerLink="" class="bold" style="color: #e9e9e9; font-size: 17px" (click)="home()">Trang chủ</a>
+            </li>
+            <li><a class="bold" style="color: #e9e9e9; font-size: 17px" (click)="trademark()">Thương hiệu</a></li>
+            <li *ngIf="role=='ROLE_ADMIN'"><a class="dropdown-toggle bold" type="button" id="dropdownMenuButton2"
+                                              data-bs-toggle="dropdown"
+                                              aria-expanded="false"
+                                              style="color: white;font-size: 16px">
+              Quản lý
+            </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2"
+                  style="margin-left: 340px; margin-top: -35px">
+                <li><a class="dropdown-item ul-color" style="width: 158px" routerLink="watchManagement">Quản lý sản
+                  phẩm</a></li>
+                <li><a class="dropdown-item ul-color" style="width: 158px" routerLink="/historyAdmin">Quản lý đơn
+                  hàng</a></li>
+              </ul>
+            </li>
+            <li *ngIf="role!='ROLE_ADMIN'"><a style="color: #e9e9e9; font-size: 17px" (click)="introduce()"
+                                              class="bold">Giới thiệu</a></li>
+            <li>
+              <form class="form-inline" style="display: flex">
+                <input class="form-control mr-sm-2" type="search" placeholder="Tên sản phẩm..."
+                       aria-label="Search" style="border-radius: 25px 0 0 25px" #nameWatch>
+                <button class="btn btn-warning my-2 my-sm-0" type="button"
+                        style="border-radius: 0 25px 25px 0; height: 38px; margin-left: -8px"><img
+                  src="https://img.icons8.com/material/24/null/search--v1.png" (click)="newValue(nameWatch.value)"/>
+                </button>
+              </form>
+            </li>
+          </ul>
+          <ul class="navbar_user" *ngIf="isLogged == true && role!='ROLE_ADMIN'">
+            <li class="checkout">
+              <a routerLink="/card">
+                <img src="https://img.icons8.com/material/24/null/shopping-cart--v1.png"/>
+                <span id="checkout_items" class="checkout_items">{{quantity}}</span>
+              </a>
+            </li>
+          </ul>
+          <ul class="navbar_user">
+            <li>
+              <a *ngIf="isLogged == false" style="width: 100px; font-size: 19px;color: #e9e9e9;margin-right: 60px"
+                 routerLink="/login">
+                Đăng nhập
+              </a>
+          </ul>
+          <img *ngIf="isLogged == true" src="{{user.avatar}}"
+               style="width: 50px;height: 50px;margin-right: 10px; border-radius: 50%; margin-left: -40px">
+          <div class="dropdown" *ngIf="isLogged == true" style="margin-right: 60px; font-size: 17px">
+            <a class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+               aria-expanded="false"
+               style="color: white">
+              {{user.name}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item ul-color" routerLink="/info">Thông tin cá nhân</a></li>
+              <li *ngIf="role!='ROLE_ADMIN'"><a class="dropdown-item ul-color" routerLink="/history">Lịch sử mua
+                hàng</a></li>
+              <li (click)="logout()"><a class="dropdown-item ul-color">Đăng xuất</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Slider -->
+<div class="row" style="padding: 0; margin:0">
+  <div id="carouselExampleFade" style="padding: 0; margin: 80px 0 0 0" class="carousel slide carousel-fade"
+       data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="2000">
+        <img src="../../../../assets/image/slide-show-2.jpg" class="d-block w-100" alt="Second slide" width="100%">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="../../../../assets/image/slide-main.jpg" class="d-block w-100" alt="First slide" width="100%">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="../../../../assets/image/slide-show-1.jpg" class="d-block w-100" alt="Third slide" width="100%">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>

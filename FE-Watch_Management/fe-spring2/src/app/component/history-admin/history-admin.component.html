@@ -1,0 +1,91 @@
+<div *ngIf="cartList.length!=0; else historyIsEmpty">
+  <table class="table table-bordered table-hover" style="background-color: white; margin-top: 80px;
+              box-shadow: 0 0 20px 0 #3590de">
+    <thead class="table-primary align-middle" style="text-align: center">
+    <tr>
+      <th scope="col">STT</th>
+      <th scope="col">Tên người mua</th>
+      <th scope="col">Số điện thoại</th>
+      <th scope="col">Email</th>
+      <th scope="col">Ngày mua</th>
+      <th scope="col">Trạng thái</th>
+      <th scope="col">Địa chỉ</th>
+      <th scope="col">Chi tiết</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cart of cartList; index as i" style="text-align: center" class="align-middle">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{cart.name}}</td>
+      <td>{{cart.phoneNumber}}</td>
+      <td>{{cart.email}}</td>
+      <td>{{cart.createDate}}</td>
+      <td>{{cart.flag ? 'Chưa thanh toán' : 'Đã thanh toán'}}</td>
+      <td>{{cart.address}}</td>
+      <td>
+        <!-- Button trigger modal -->
+        <button (click)="detailHistory(cart.id)" type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+          <img style="width: 30px; height: 20px"
+               src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADRUlEQVR4nO2ZXUhTYRjHd2NBXmRBOY0uAi/Cry7SCAoKvFDaaEcMIaKuIshItCD0bGhJo/xgOT9Qd/yEIggio8tIUgTvDMq1mZrbzEmeTbfO5uZZ2z/OlmAqbMcdz9HYA384sJvf77zP877nZTJZohKVqP+/ihegIOz4QdiBeJPfPTsquoDKjjkh4Llkaj6LL0EIBM8lS/0lItFjGduzAqJLEAIKZKsnxJcgBBTIISfElyDWAajmQzhQZUBSRWvUJFdTWwqILkEIKJBLGsWXIARsoVOkUXwJQkCB09qpqBJn+q2ju1agcIwRX4IQcAb4RJYQ2IEWknwFiIQAoLIFoJz2QGFehsLowKUJOvysnPGGf9vxFUiuomIa4k0p12NfWQNydS9wc/gT6ucd6PKxMKwG0cywIBcY3Jh2QmFaCovsnED1NgTu6nBM0wnNpAUDIaA/GEnfb6CXSwDoCQAUC2idfpSY6N0zA5dnfbg+5UB3IBgV3rAKdPoBvTeIlhWck1yAa4VSM80LvsMPtPuANi/cbT5kSCqgNC+jye3nD78CtHiBZg9GpBvicj0O3WvDyceDyKh7jRMPX+F4zUuka57jKDmAw1W9OPiAQvL9TuyvbEcKSf0Dr/cAz5hwLkozxHeakNPwJmaBpIrWTfA6Bmh0gxJUINZwe/v5jg+8VqBlA3zTL6DRBbM0AkYHqECIV8/rN8K7gacuuCUT6GJDccHXu4AnS2CkGeLbDaiz/owXHlonvko2xNk8hjiFpLaCR50DXYIK8DnECoZneO1CjZvhUUsLvI3yPcgu9I7EJHCQpLaC/xgXfLwC3CpcMdHhbxsePQ8OXm1n2YL31luSCqx9zF0109B5gjHDk/YAzr41I29omc0cXKyVVCAsYfGjxOxAzaI/KnzlnB+FY3PIG1pi84fdyHpHB9MMVpWkAmvtxJ3O1745UWFjULvIQusM4hEdhHqBRdl3BqUmJxSTrvCNjXvzHHx6tw1yg2011WBRSiqwXoS7PipiuFLKKVuR3GDzpVERiW2thNACsUb2t+KWEPIvJh6xrmeIS6LYjiLCDpuY8Kp5FG7k4GYgDB+RGJftxUqNSIwf6ZuVS82SqETJdkH9AdnZeR4MKdrlAAAAAElFTkSuQmCC">
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade modal-dialog-scrollable modal-xl" id="exampleModal" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true" style="font-size: 20px">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="exampleModalLabel" style="font-weight: bold">Chi tiết đơn mua</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <table class="table table-bordered table-hover" style="background-color: white; margin-top: 80px;
+              box-shadow: 0 0 10px 0 #3590de">
+          <thead class="table-primary align-middle" style="text-align: center">
+          <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Ảnh sản phẩm</th>
+            <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Tổng giá</th>
+            <th scope="col">Ngày đặt hàng</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let order of orderDetailList; index as i" style="text-align: center" class="align-middle">
+            <th scope="row">{{i + 1}}</th>
+            <td><img src="{{order.url}}" style="height: 50px; width: 50px"></td>
+            <td>{{order.watchName}}</td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.price|number}}đ</td>
+            <td>{{order.money|number}}đ</td>
+            <td>{{order.createDate}}</td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Huỷ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #historyIsEmpty>
+  <img src="../../../../assets/image/Shopping-icon-by-rudezstudio-4-removebg-preview.png" height="417" width="622"
+       style="display: flex; margin: 0 auto"/>
+  <div class="d-flex"><h5 style="margin-left: 500px; font-size: 20px; font-family: 'Paypal', sans-serif">Chưa có khách
+    hàng nào mua <a routerLink="">quay lại!</a></h5>
+  </div>
+</ng-template>
+
